@@ -59,6 +59,9 @@ export type Resultado = {
   links: string[];
   rede_social: string | null;
   relatorio: string | null;
+  video: string | null;
+  foto: string | null;
+  imprensa: string | null;
 };
 
 export type TopMunicipio = { municipio: string; valor: number };

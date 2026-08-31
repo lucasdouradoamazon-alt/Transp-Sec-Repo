@@ -10,6 +10,24 @@ import { LINK_OUVIDORIA_CULTURA } from "@/lib/contato";
 
 export const dynamic = "force-static";
 
+/** Planilha mistura link com texto livre (descrição, nome de arquivo) na
+ * mesma coluna — só vira link clicável quando parece URL de verdade. */
+function LinkOuTexto({ label, value }: { label: string; value: string }) {
+  if (value.toLowerCase().startsWith("http")) {
+    return (
+      <a
+        href={value}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="text-sm font-medium text-[var(--series-1)] hover:underline"
+      >
+        {label} ↗
+      </a>
+    );
+  }
+  return <Campo label={label} value={value} />;
+}
+
 export async function generateStaticParams() {
   const registros = await getRegistros();
   return registros.map((r) => ({ id: r.id }));
@@ -209,18 +227,7 @@ export default async function RegistroDetalhePage({
                 </a>
               ))}
               {registro.resultado.rede_social && (
-                registro.resultado.rede_social.toLowerCase().startsWith("http") ? (
-                  <a
-                    href={registro.resultado.rede_social}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-sm font-medium text-[var(--series-1)] hover:underline"
-                  >
-                    Rede social ↗
-                  </a>
-                ) : (
-                  <Campo label="Rede social" value={registro.resultado.rede_social} />
-                )
+                <LinkOuTexto label="Rede social" value={registro.resultado.rede_social} />
               )}
               {registro.resultado.relatorio && (
                 <a
@@ -231,6 +238,15 @@ export default async function RegistroDetalhePage({
                 >
                   Relatório ↗
                 </a>
+              )}
+              {registro.resultado.video && (
+                <LinkOuTexto label="Vídeo" value={registro.resultado.video} />
+              )}
+              {registro.resultado.foto && (
+                <LinkOuTexto label="Foto" value={registro.resultado.foto} />
+              )}
+              {registro.resultado.imprensa && (
+                <LinkOuTexto label="Imprensa" value={registro.resultado.imprensa} />
               )}
             </div>
           ) : (
