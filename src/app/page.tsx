@@ -165,11 +165,6 @@ export default async function Home() {
     acaoAfirmativa.conhecidos.map((c) => ({ rotulo: c.rotulo, valor: c.valor }))
   );
 
-  const orientacaoSexual = separarNaoInformado(dashboard.registros_por_orientacao_sexual);
-  const orientacaoSexualFatias = construirFatias(
-    orientacaoSexual.conhecidos.map((c) => ({ rotulo: c.rotulo, valor: c.valor }))
-  );
-
   const deficiencia = separarNaoInformado(dashboard.registros_por_deficiencia);
   const deficienciaFatias = construirFatias(
     deficiencia.conhecidos.map((c) => ({ rotulo: c.rotulo, valor: c.valor }))
@@ -279,13 +274,6 @@ export default async function Home() {
             valueLabel={(v) => formatNumber(v)}
             centerLabel="com esse dado"
             note={`Dado disponível em ${formatNumber(acaoAfirmativa.totalConhecido)} de ${formatNumber(acaoAfirmativa.total)} registros (${Math.round((acaoAfirmativa.totalConhecido / acaoAfirmativa.total) * 100)}%).`}
-          />
-          <PieChart
-            title="Orientação sexual"
-            slices={orientacaoSexualFatias}
-            valueLabel={(v) => formatNumber(v)}
-            centerLabel="com esse dado"
-            note={`Dado disponível em ${formatNumber(orientacaoSexual.totalConhecido)} de ${formatNumber(orientacaoSexual.total)} registros (${Math.round((orientacaoSexual.totalConhecido / orientacaoSexual.total) * 100)}%) — só um dos editais cruzados pergunta isso.`}
           />
           <PieChart
             title="Pessoa com deficiência"

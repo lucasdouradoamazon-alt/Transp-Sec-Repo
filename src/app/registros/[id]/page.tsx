@@ -145,7 +145,6 @@ export default async function RegistroDetalhePage({
           <Campo label="Data de nascimento" value={registro.proponente_nascimento} />
           <Campo label="Cota" value={registro.proponente_cota} />
           <Campo label="Ação afirmativa" value={registro.proponente_acaoafirmativa} />
-          <Campo label="Orientação sexual" value={registro.proponente_orientacao_sexual} />
           <Campo label="Pessoa com deficiência" value={registro.proponente_deficiencia} />
         </Secao>
 

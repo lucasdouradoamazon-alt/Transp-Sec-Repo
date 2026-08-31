@@ -41,7 +41,6 @@ export type Registro = {
   proponente_nascimento: string | null;
   proponente_cota: string | null;
   proponente_acaoafirmativa: string | null;
-  proponente_orientacao_sexual: string | null;
   proponente_deficiencia: string | null;
   atesto_nome_servidor: string | null;
   atesto_matricula: string | null;
@@ -90,7 +89,6 @@ export type Dashboard = {
   registros_por_genero: PorCategoria[];
   registros_por_cota: PorCategoria[];
   registros_por_acao_afirmativa: PorCategoria[];
-  registros_por_orientacao_sexual: PorCategoria[];
   registros_por_deficiencia: PorCategoria[];
   investimento_por_regional: { regional: string; valor: number }[];
   registros_sem_regional: number;
