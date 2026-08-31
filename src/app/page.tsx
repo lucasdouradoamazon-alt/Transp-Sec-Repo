@@ -30,8 +30,36 @@ const FONTE_COR: Record<string, string> = {
   "Programa ICMS Cultural e Patrimonial": PALETTE[5],
 };
 
-function corDeFonte(nome: string, usadasFallback: number): string {
-  return FONTE_COR[nome] ?? PALETTE[(3 + usadasFallback) % PALETTE.length];
+/** Cor por fonte, sem colidir com as cores fixas de FONTE_COR: percorre a
+ * paleta pulando índices já usados (fixos ou já atribuídos a outra fonte
+ * nesta mesma chamada), em vez de indexar pela posição no array — a posição
+ * sozinha colide assim que o número de fontes cresce (ex: "Patrocínios"
+ * caindo no mesmo índice que "Lei Paulo Gustavo"). */
+function construirCoresFonte(nomes: string[]): Record<string, string> {
+  const cores: Record<string, string> = {};
+  const usados = new Set<number>();
+  for (const nome of nomes) {
+    const fixa = FONTE_COR[nome];
+    if (fixa !== undefined) {
+      cores[nome] = fixa;
+      usados.add(PALETTE.indexOf(fixa));
+    }
+  }
+  let proximo = 0;
+  for (const nome of nomes) {
+    if (cores[nome]) continue;
+    let tentativas = 0;
+    while (usados.has(proximo) && tentativas < PALETTE.length) {
+      proximo = (proximo + 1) % PALETTE.length;
+      tentativas++;
+    }
+    // mais fontes distintas do que cores na paleta: aceita repetir a partir
+    // daqui em vez de travar (caso raro, categoria nova além da 8ª).
+    cores[nome] = PALETTE[proximo];
+    usados.add(proximo);
+    proximo = (proximo + 1) % PALETTE.length;
+  }
+  return cores;
 }
 
 /** Agrupa categorias em ≤ max fatias + "Outros" — nunca gera uma 9ª cor. */
@@ -97,11 +125,12 @@ export default async function Home() {
     tooltip: `${m.municipio}: ${formatBRL(m.valor)}`,
   }));
 
-  const fonteSlices: PieSlice[] = dashboard.valor_por_fonte.map((f, idx) => ({
+  const coresFonte = construirCoresFonte(dashboard.valor_por_fonte.map((f) => f.fonte));
+  const fonteSlices: PieSlice[] = dashboard.valor_por_fonte.map((f) => ({
     key: f.fonte,
     label: f.fonte,
     value: f.valor,
-    color: corDeFonte(f.fonte, idx),
+    color: coresFonte[f.fonte],
   }));
 
   const situacaoFatias = construirFatias(
