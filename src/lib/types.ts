@@ -60,6 +60,8 @@ export type Resultado = {
   rede_social: string | null;
   relatorio: string | null;
   video: string | null;
+  /** Miniatura só quando o vídeo é YouTube/Vimeo (dá pra resolver sem risco); demais links de vídeo ficam sem. */
+  video_thumbnail: string | null;
   foto: string | null;
   imprensa: string | null;
 };

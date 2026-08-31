@@ -240,7 +240,23 @@ export default async function RegistroDetalhePage({
                 </a>
               )}
               {registro.resultado.video && (
-                <LinkOuTexto label="Vídeo" value={registro.resultado.video} />
+                registro.resultado.video_thumbnail ? (
+                  <a
+                    href={registro.resultado.video}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block w-40 overflow-hidden rounded border border-[var(--border-hairline)]"
+                  >
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src={registro.resultado.video_thumbnail}
+                      alt="Miniatura do vídeo"
+                      className="aspect-video w-full object-cover"
+                    />
+                  </a>
+                ) : (
+                  <LinkOuTexto label="Vídeo" value={registro.resultado.video} />
+                )
               )}
               {registro.resultado.foto && (
                 <LinkOuTexto label="Foto" value={registro.resultado.foto} />
