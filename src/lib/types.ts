@@ -89,7 +89,6 @@ export type Dashboard = {
   registros_por_genero: PorCategoria[];
   registros_por_cota: PorCategoria[];
   registros_por_acao_afirmativa: PorCategoria[];
-  registros_por_deficiencia: PorCategoria[];
   investimento_por_regional: { regional: string; valor: number }[];
   registros_sem_regional: number;
 };

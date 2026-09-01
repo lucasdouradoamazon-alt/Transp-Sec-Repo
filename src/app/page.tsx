@@ -165,11 +165,6 @@ export default async function Home() {
     acaoAfirmativa.conhecidos.map((c) => ({ rotulo: c.rotulo, valor: c.valor }))
   );
 
-  const deficiencia = separarNaoInformado(dashboard.registros_por_deficiencia);
-  const deficienciaFatias = construirFatias(
-    deficiencia.conhecidos.map((c) => ({ rotulo: c.rotulo, valor: c.valor }))
-  );
-
   const regionalFatias = construirFatiasRegional(dashboard.investimento_por_regional);
   const totalComRegional = dashboard.total_registros - dashboard.registros_sem_regional;
 
@@ -274,13 +269,6 @@ export default async function Home() {
             valueLabel={(v) => formatNumber(v)}
             centerLabel="com esse dado"
             note={`Dado disponível em ${formatNumber(acaoAfirmativa.totalConhecido)} de ${formatNumber(acaoAfirmativa.total)} registros (${Math.round((acaoAfirmativa.totalConhecido / acaoAfirmativa.total) * 100)}%).`}
-          />
-          <PieChart
-            title="Pessoa com deficiência"
-            slices={deficienciaFatias}
-            valueLabel={(v) => formatNumber(v)}
-            centerLabel="com esse dado"
-            note={`Dado disponível em ${formatNumber(deficiencia.totalConhecido)} de ${formatNumber(deficiencia.total)} registros (${Math.round((deficiencia.totalConhecido / deficiencia.total) * 100)}%).`}
           />
         </div>
       </div>
