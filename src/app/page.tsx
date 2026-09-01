@@ -25,7 +25,6 @@ const COR_NEUTRA = "var(--text-muted)";
 
 const FONTE_COR: Record<string, string> = {
   "Lei Paulo Gustavo": PALETTE[0],
-  "Lei Aldir Blanc": PALETTE[1],
   "Política Nacional Aldir Blanc": PALETTE[2],
   "Programa ICMS Cultural e Patrimonial": PALETTE[5],
 };

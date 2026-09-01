@@ -18,7 +18,7 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Portal da Transparência — Secretaria de Cultura da Paraíba",
   description:
-    "Consulta pública dos recursos da Lei Paulo Gustavo, da Lei Aldir Blanc e do Programa ICMS Cultural e Patrimonial.",
+    "Consulta pública dos recursos da Lei Paulo Gustavo, da Política Nacional Aldir Blanc e do Programa ICMS Cultural e Patrimonial.",
 };
 
 export default function RootLayout({
