@@ -79,7 +79,11 @@ export default function RootLayout({
               <div className="ml-auto">
                 <BotaoContato
                   label="Tem sugestão de melhorias?"
-                  href={EMAIL_SUGESTOES ? `mailto:${EMAIL_SUGESTOES}` : null}
+                  href={
+                    EMAIL_SUGESTOES
+                      ? `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(EMAIL_SUGESTOES)}`
+                      : null
+                  }
                   pendingHint="E-mail de sugestões em configuração"
                 />
               </div>
