@@ -91,6 +91,7 @@ export default async function RegistroDetalhePage({
           label="Denunciar irregularidade"
           href={LINK_OUVIDORIA_CULTURA}
           pendingHint="Link da Ouvidoria em configuração"
+          variant="alerta"
         />
       </div>
 
