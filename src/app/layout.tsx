@@ -70,19 +70,12 @@ export default function RootLayout({
         <footer className="border-t border-[var(--border-hairline)] mt-12">
           <div className="mx-auto max-w-6xl px-6 py-6">
             <div className="flex flex-wrap items-center gap-6">
-              {/* placeholders ate as logos oficiais (Governo do Estado / Secult) chegarem */}
-              <div
-                title="Logo do Governo do Estado da Paraíba (pendente)"
-                className="flex h-12 w-32 items-center justify-center rounded border border-dashed border-[var(--border-hairline)] text-[10px] uppercase text-[var(--text-muted)]"
-              >
-                Governo do Estado
-              </div>
-              <div
-                title="Logo da Secretaria de Cultura da Paraíba (pendente)"
-                className="flex h-12 w-32 items-center justify-center rounded border border-dashed border-[var(--border-hairline)] text-[10px] uppercase text-[var(--text-muted)]"
-              >
-                Secult PB
-              </div>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/logo-secult-governo-pb.png"
+                alt="Secretaria de Estado da Cultura e Governo da Paraíba"
+                className="h-10 w-auto"
+              />
               <div className="ml-auto">
                 <BotaoContato
                   label="Tem sugestão de melhorias?"
