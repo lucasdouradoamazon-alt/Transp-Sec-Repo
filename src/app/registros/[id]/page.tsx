@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 import { getRegistros } from "@/lib/data";
 import { Campo, Secao } from "@/components/CampoIdentificacao";
 import { StatusIcon } from "@/components/StatusIcon";
-import { BotaoContato } from "@/components/BotaoContato";
+import { BotaoDenuncia } from "@/components/BotaoDenuncia";
 import { statusKind, statusColorVar } from "@/lib/status";
 import { formatBRL, labelResultadoLink } from "@/lib/format";
 import { LINK_OUVIDORIA_CULTURA } from "@/lib/contato";
@@ -87,12 +87,7 @@ export default async function RegistroDetalhePage({
       </div>
 
       <div className="mt-4">
-        <BotaoContato
-          label="Denunciar irregularidade"
-          href={LINK_OUVIDORIA_CULTURA}
-          pendingHint="Link da Ouvidoria em configuração"
-          variant="alerta"
-        />
+        <BotaoDenuncia href={LINK_OUVIDORIA_CULTURA} />
       </div>
 
       <div className="mt-6 flex flex-col gap-4">
