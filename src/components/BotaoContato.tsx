@@ -26,7 +26,7 @@ export function BotaoContato({
       href={href}
       target={externo ? "_blank" : undefined}
       rel={externo ? "noopener noreferrer" : undefined}
-      className="inline-flex items-center gap-1.5 rounded border border-[var(--border-hairline)] px-3 py-1.5 text-sm font-medium text-[var(--text-primary)] hover:bg-[var(--gridline)]"
+      className="inline-flex items-center gap-1.5 rounded border border-green-200 bg-green-50 px-3 py-1.5 text-sm font-medium text-green-600 hover:bg-green-100"
     >
       {label}
     </a>
