@@ -259,8 +259,8 @@ export default async function Home() {
             title="Cota"
             slices={cotaFatias}
             valueLabel={(v) => formatNumber(v)}
-            centerLabel="com esse dado"
-            note={`Dado disponível em ${formatNumber(cota.totalConhecido)} de ${formatNumber(cota.total)} registros (${Math.round((cota.totalConhecido / cota.total) * 100)}%).`}
+            centerLabel="reivindicam cota"
+            note={`${formatNumber(cota.totalConhecido)} de ${formatNumber(cota.total)} registros reivindicam alguma cota (raça, indígena, deficiência ou etnia). Não inclui quem respondeu não concorrer por cota nem quem não tem esse dado.`}
           />
           <PieChart
             title="Ação afirmativa"
