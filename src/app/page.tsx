@@ -236,10 +236,6 @@ export default async function Home() {
         <h2 className="text-lg font-semibold text-[var(--text-primary)]">
           Perfil demográfico dos proponentes
         </h2>
-        <p className="mt-1 text-sm text-[var(--text-secondary)]">
-          Dado autodeclarado, cruzado a partir das planilhas de inscrição da PNAB por CPF/CNPJ —
-          disponível só pra quem casou com um documento válido, não pro total de registros.
-        </p>
         <div className="mt-5 grid grid-cols-1 gap-5 lg:grid-cols-2">
           <PieChart
             title="Raça/cor"

@@ -84,11 +84,6 @@ export default function RootLayout({
                 />
               </div>
             </div>
-            <div className="mt-4 text-xs text-[var(--text-muted)]">
-              Dados das Leis Paulo Gustavo e Aldir Blanc e do Programa ICMS Cultural
-              e Patrimonial. Protótipo em preparação — fonte: planilhas de
-              acompanhamento da Secult-PB.
-            </div>
           </div>
         </footer>
       </body>
