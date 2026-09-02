@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import Link from "next/link";
-import { BotaoContato } from "@/components/BotaoContato";
+import { BotaoCopiarEmail } from "@/components/BotaoCopiarEmail";
 import { EMAIL_SUGESTOES } from "@/lib/contato";
 import "./globals.css";
 
@@ -77,15 +77,7 @@ export default function RootLayout({
                 className="h-10 w-auto"
               />
               <div className="ml-auto">
-                <BotaoContato
-                  label="Tem sugestão de melhorias?"
-                  href={
-                    EMAIL_SUGESTOES
-                      ? `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(EMAIL_SUGESTOES)}`
-                      : null
-                  }
-                  pendingHint="E-mail de sugestões em configuração"
-                />
+                <BotaoCopiarEmail email={EMAIL_SUGESTOES} />
               </div>
             </div>
           </div>
