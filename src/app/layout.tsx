@@ -32,10 +32,10 @@ export default function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
-        {/* faixa vermelha e preta -- referencia as cores da bandeira da Paraíba, a pedido do Secretário */}
+        {/* faixa preta e vermelha -- referencia as cores da bandeira da Paraíba, a pedido do Secretário (ordem invertida em 2026-09-02 pra bater com a bandeira de verdade) */}
         <div className="flex h-1.5 w-full" aria-hidden="true">
-          <div className="flex-1 bg-red-600" />
           <div className="flex-1 bg-black" />
+          <div className="flex-1 bg-red-600" />
         </div>
         <header className="border-b border-[var(--border-hairline)] bg-[var(--surface-1)]">
           <div className="mx-auto max-w-6xl px-6 py-4 flex items-center justify-between gap-4">
